@@ -1,0 +1,74 @@
+<div class="div-blur-image"></div>
+
+<div class="container">
+  <div class="d-flex justify-content-center h-100 p-5">
+
+    <div class="card">
+
+      <div class="card-header text-center">
+        <h3>Weather App</h3>
+        <img src="../../../assets/img/logo.png" class="img-logo" alt="" />
+      </div>
+
+      <div class="card-body">
+        <form> 
+            <div *ngIf="error" class="alert alert-danger h-10" role="alert">
+                <p>{{errorMesage | titlecase}}</p>
+              </div>         
+          <div class="input-group form-group">
+            <input            
+              type="text"
+              #cityName
+              (keydown.enter)="seletCity(cityName.value, countryCode.value)"
+              class="form-control"
+              placeholder="City name"
+            />
+          </div>
+          <div class="input-group form-group">
+            <input
+              type="text"
+              #countryCode
+              (keydown.enter)="seletCity(cityName.value, countryCode.value)"
+              class="form-control"
+              placeholder="Country code"
+            />
+          </div>
+          <div class="input-group form-group">
+            <input
+              type="button"  
+              (click)="seletCity(cityName.value, countryCode.value)"            
+              value="Get weather"
+              class="btn btn-primary btn-lg btn-block button_f"
+            />
+          </div>
+        </form>
+
+        <div *ngIf="showInfo" class="card-header text-center card-info">
+          
+          <button
+            type="button"
+            (click)="showInfo=false"
+            class="close"
+            aria-label="Close"
+          >          
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+          <img [src]="icon" class="card-img-top" class="icon" alt="..." />
+          <br />
+          <span>{{description | titlecase}}</span>
+          
+          <div class="card-body">
+            <h4 class="card-title card-info">{{name}}</h4>
+            <h2>{{temp | number: ".0-0"}}&#8451;</h2>
+            <span>Wind: {{wind | number: ".1-2"}} km/h</span><br />
+            <span>Feels Like: {{feelsLike | number: ".0-0"}}&#8451;</span
+            ><br />
+            <span>Max: {{tempMax | number: ".0-0"}}&#8451;</span><br />
+            <span>Min: {{tempMin | number: ".0-0"}}&#8451;</span><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
