@@ -1,22 +1,31 @@
+<!-- Blur div for the background image -->
 <div class="div-blur-image"></div>
 
+<!-- Main cntainer -->
 <div class="container">
+  <!-- Div content-center -->
   <div class="d-flex justify-content-center h-100 p-5">
-
+    <!-- Main card -->
     <div class="card">
-
+      <!-- Card header with name and logo -->
       <div class="card-header text-center">
         <h3>Weather App</h3>
         <img src="../../../assets/img/logo.png" class="img-logo" alt="" />
       </div>
+      <!-- End card header with name and logo -->
 
+      <!-- Content div -->
       <div class="card-body">
-        <form> 
-            <div *ngIf="error" class="alert alert-danger h-10" role="alert">
-                <p>{{errorMesage | titlecase}}</p>
-              </div>         
+        <form>
+          <!-- Alert for showing errors -->
+          <div *ngIf="error" class="alert alert-danger h-10" role="alert">
+            <p>{{ errorMesage | titlecase }}</p>
+          </div>
+          <!-- End Alert for showing errors -->
+
+          <!-- Inputs: cityName and countryCode, and Buttom -->
           <div class="input-group form-group">
-            <input            
+            <input
               type="text"
               #cityName
               (keydown.enter)="seletCity(cityName.value, countryCode.value)"
@@ -35,40 +44,47 @@
           </div>
           <div class="input-group form-group">
             <input
-              type="button"  
-              (click)="seletCity(cityName.value, countryCode.value)"            
+              type="button"
+              (click)="seletCity(cityName.value, countryCode.value)"
               value="Get weather"
               class="btn btn-primary btn-lg btn-block button_f"
             />
           </div>
+          <!-- End Inputs: cityName and countryCode -->
         </form>
 
+        <!-- Close button for closing Details -->
         <div *ngIf="showInfo" class="card-header text-center card-info">
-          
           <button
             type="button"
-            (click)="showInfo=false"
+            (click)="showInfo = false"
             class="close"
             aria-label="Close"
-          >          
+          >
             <span aria-hidden="true">&times;</span>
-          </button>
+          </button> <!-- End Close button for closing Details -->
 
+          <!-- Image and Weather desciption -->
           <img [src]="icon" class="card-img-top" class="icon" alt="..." />
           <br />
-          <span>{{description | titlecase}}</span>
-          
+          <span>{{ description | titlecase }}</span> <!-- End Image and Weather desciption -->
+
+          <!-- Card for details -->
           <div class="card-body">
-            <h4 class="card-title card-info">{{name}}</h4>
-            <h2>{{temp | number: ".0-0"}}&#8451;</h2>
-            <span>Wind: {{wind | number: ".1-2"}} km/h</span><br />
-            <span>Feels Like: {{feelsLike | number: ".0-0"}}&#8451;</span
+            <h4 class="card-title card-info">{{ name }}</h4>
+            <h2>{{ temp | number: ".0-0" }}&#8451;</h2>
+            <span>Wind: {{ wind | number: ".1-2" }} km/h</span><br />
+            <span>Feels Like: {{ feelsLike | number: ".0-0" }}&#8451;</span
             ><br />
-            <span>Max: {{tempMax | number: ".0-0"}}&#8451;</span><br />
-            <span>Min: {{tempMin | number: ".0-0"}}&#8451;</span><br />
-          </div>
+            <span>Max: {{ tempMax | number: ".0-0" }}&#8451;</span><br />
+            <span>Min: {{ tempMin | number: ".0-0" }}&#8451;</span><br />
+          </div> <!-- End Card for details -->
         </div>
       </div>
+      <!-- End Content div -->
     </div>
+    <!-- End Main card -->
   </div>
+  <!-- Div Content-center -->
 </div>
+<!-- End Main cntainer -->
