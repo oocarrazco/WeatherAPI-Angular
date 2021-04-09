@@ -53,8 +53,9 @@
           <!-- End Inputs: cityName and countryCode -->
         </form>
 
-        <!-- Close button for closing Details -->
+        <!-- Weather details div -->
         <div *ngIf="showInfo" class="card-header text-center card-info">
+          <!-- Close button for closing Details -->
           <button
             type="button"
             (click)="showInfo = false"
@@ -62,12 +63,14 @@
             aria-label="Close"
           >
             <span aria-hidden="true">&times;</span>
-          </button> <!-- End Close button for closing Details -->
+          </button>
+          <!-- End Close button for closing Details -->
 
           <!-- Image and Weather desciption -->
           <img [src]="icon" class="card-img-top" class="icon" alt="..." />
           <br />
-          <span>{{ description | titlecase }}</span> <!-- End Image and Weather desciption -->
+          <span class="description">{{ description | titlecase }}</span>
+          <!-- End Image and Weather desciption -->
 
           <!-- Card for details -->
           <div class="card-body">
@@ -78,8 +81,10 @@
             ><br />
             <span>Max: {{ tempMax | number: ".0-0" }}&#8451;</span><br />
             <span>Min: {{ tempMin | number: ".0-0" }}&#8451;</span><br />
-          </div> <!-- End Card for details -->
+          </div>
+          <!-- End Card for details -->
         </div>
+        <!-- End Weather details div -->
       </div>
       <!-- End Content div -->
     </div>

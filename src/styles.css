@@ -73,3 +73,7 @@ div.card-body span {
   line-height: 30px;
   padding: 0 15px;
 }
+
+.description {
+  color: white !important;
+}
